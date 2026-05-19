@@ -1,6 +1,6 @@
 
 def display_menu():
-    print("\nMenu:")
+    print("\n==== Menu ====")
     print("1. register")
     print("2. Login")
     print("3. hapus data")
@@ -13,12 +13,9 @@ def register(username, password):
     with open("dataBase.txt", "r") as file:
         for garis in file:
             if garis.strip():
-                akun_terdaftar , password_terdaftar = garis.strip().split(",")
+                akun_terdaftar, _ = garis.strip().split(",")
                 if username == akun_terdaftar:
                     print("username sudah terdaftar")
-                    return
-                if password == password_terdaftar:
-                    print("password sudah terdaftar")
                     return
 
     with open("dataBase.txt", "a") as file:
@@ -28,17 +25,23 @@ def register(username, password):
 
 def Login():
     open("dataBase.txt", "a").close()
-    username = input("masukkan username: ")
-    password = input("masukkan password: ")
 
-    with open("dataBase.txt", "r") as file:
-        for garis in file:
-            if garis.strip():
-                akun_terdaftar, password_tertaftar = garis.strip().split(",")
-                if username == akun_terdaftar and password == password_tertaftar:
-                    print("login berhasil")
-                    return
-    print("login gagal, password atau username salah")
+    for percobaan in range(1, 4):
+        print(f"percobaan ke : {percobaan} dari 3")
+        username = input("masukkan username: ")
+        password = input("masukkan password: ")
+
+        with open("dataBase.txt", "r") as file:
+            for garis in file:
+                if garis.strip():
+                    akun_terdaftar, password_tertaftar = garis.strip().split(",")
+                    if username == akun_terdaftar and password == password_tertaftar:
+                        print("login berhasil")
+                        return
+        print("login gagal, password atau username salah")
+
+    print("\n[peringatan] anda telah salah memasukkan akun sebanyak 3 kali!")
+    print("akses dikunci. kembali ke menu utama")
 
 def hapus():
     with open("dataBase.txt", "w") as file:
