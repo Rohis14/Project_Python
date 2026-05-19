@@ -40,7 +40,7 @@ def Login():
 def hapus():
     with open("dataBase.txt", "w") as file:
         file.write("")
-    print("data berhasil dihapus")
+        print("data berhasil dihapus")
     
         
 
