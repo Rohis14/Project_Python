@@ -13,9 +13,12 @@ def register(username, password):
     with open("dataBase.txt", "r") as file:
         for garis in file:
             if garis.strip():
-                akun_terdaftar , _ = garis.strip().split(",")
+                akun_terdaftar , password_terdaftar = garis.strip().split(",")
                 if username == akun_terdaftar:
                     print("username sudah terdaftar")
+                    return
+                if password == password_terdaftar:
+                    print("password sudah terdaftar")
                     return
 
     with open("dataBase.txt", "a") as file:
