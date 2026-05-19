@@ -1,8 +1,15 @@
-# Python Login System
+# Project CLI Python
 
-Sistem registrasi dan login sederhana berbasis CLI (teks) menggunakan Python dan penyimpanan file lokal.
+## Deskripsi
+Aplikasi CLI sederhana menggunakan Python Fundamental untuk sistem registrasi dan login pengguna.
 
 ## Fitur
-1. **Register**: Buat akun baru (anti-duplikat username).
-2. **Login**: Masuk ke sistem.
-3. **Hapus Data**: Kosongkan database.
+- Register (Pendaftaran akun baru tanpa duplikat username)
+- Login (Autentikasi pengguna dengan batasan maksimal 3x percobaan)
+- Hapus data (Mengosongkan seluruh database pengguna)
+
+## Teknologi
+- Python
+
+## Cara Menjalankan
+python main.py
